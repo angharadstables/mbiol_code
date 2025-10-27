@@ -7,6 +7,7 @@
 # in DE_results.csv (this data was first processed in fragpipe)
 # roughly shows whether or not proteins interacts with GR
 
+# changes
 # Dex activates the glucocorticoid receptor. RNA seq data of cells +/- Dex is found
 # in Dex_RNA-seq.rds.
 
@@ -16,7 +17,7 @@
 ###################################
 # Installing and Loading Packages #
 ###################################
-library(tidyverse)
+library(tidyverse) 
 
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
