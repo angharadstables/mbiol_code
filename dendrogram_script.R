@@ -40,7 +40,7 @@ length(cluster40[cluster40 == 21])
 
 # Are they still clustered together when you cut it at 25?
 cluster25 <- cutree(hclust, h = 25)
-range(clusters_h25)
+range(cluster25)
 # 63 clusters
 cluster25[NCOAs]
 # NCOA1 and 2 are still in the same cluster (cluster 39)
@@ -52,4 +52,16 @@ cluster39h25 <- names(cluster25[cluster25 == 39])
 write.csv(cluster39h25, file = "results/NCOA1-2_cluster.csv")
 
 # Where is the glucocorticoid receptor clustered?
-GR
+GR <- c("P04150")
+cluster25[GR]
+# It is in cluster 32. What other proteins are in this cluster?
+clusterGR <- names(cluster25[cluster25 == 32])
+write.csv(clusterGR, file = "results/GR_cluster_32.csv")
+# how many proteins in the cluster 
+length(cluster25[cluster25 == 32])
+# 253 proteins in the cluster. 
+
+# Create a diagram with coloured clusters
+dend <- as.dendrogram(hclust)
+# plot uncoloured dend
+plot(dend)
