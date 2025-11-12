@@ -61,7 +61,39 @@ write.csv(clusterGR, file = "results/GR_cluster_32.csv")
 length(cluster25[cluster25 == 32])
 # 253 proteins in the cluster. 
 
-# Create a diagram with coloured clusters
+# Create a diagram with coloured clusters - NCOA1
 dend <- as.dendrogram(hclust)
 # plot uncoloured dend
 plot(dend)
+# Matching the order of the cluster labels in cluster25 and dend object
+clusters_ordered <- cluster25[order.dendrogram(dend)]
+# assigning target cluster
+target_cluster <- clusters_ordered["Q15788"]
+target_cluster 
+# this is cluster 39. correct. will include both Q15788 and Q15596
+# each cluster ID must be assigned a colour
+cluster_ids <- unique(clusters_ordered) # get cluster IDs
+cluster_ids
+# these are all the cluster ids 
+# set it so that if it is not the target cluster it will be black, if it is red. 
+cluster_colours <- ifelse(cluster_ids == target_cluster, "red", "black")
+cluster_colours
+# everything is black except 39 which is red. 
+# cluster_colours is currently an unnamed vector which contains just colours
+names(cluster_colours) <- (cluster_ids)
+# check again 
+cluster_colours 
+# create coloured dendrogram
+dend_coloured <- color_branches(dend, h = 25, groups = clusters_ordered,
+                                col = cluster_colours)
+plot(dend_coloured, leaflab = "none")
+# add custom labels to this plot
+poi <- NCOAs
+custom_labels <- ifelse(labels(dend) %in% poi, labels(dend), "")
+labels(dend_coloured) <- custom_labels
+plot(dend_coloured)
+
+# save as png
+png(filename = "cluster_NCOAs.png", width = 600, height = 600)
+plot(dend_coloured, cex = 0.1, main = "NCOA1/2/3")
+dev.off()
