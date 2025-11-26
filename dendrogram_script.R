@@ -129,3 +129,18 @@ write.csv(cluster2proteins, file = "results/cluster2proteins.csv")
 # csv 3
 cluster3proteins <- names(cluster55[cluster55 == 3])
 write.csv(cluster3proteins, file = "results/cluster3proteins.csv")
+# csv 4
+cluster4proteins <- names(cluster55[cluster55 == 4])
+write.csv(cluster4proteins, file = "results/cluster4proteins.csv")
+# csv 5
+cluster5proteins <- names(cluster55[cluster55 == 5])
+write.csv(cluster5proteins, file = "results/cluster5proteins.csv")
+# csv 6
+cluster6proteins <- names(cluster55[cluster55 == 6])
+write.csv(cluster6proteins, file = "results/cluster6proteins.csv")
+# csv 7
+cluster7proteins <- names(cluster55[cluster55 == 7])
+write.csv(cluster7proteins, file = "results/cluster7proteins.csv")
+# csv 8
+cluster8proteins <- names(cluster55[cluster55 == 8])
+write.csv(cluster8proteins, file = "results/cluster8proteins.csv")
