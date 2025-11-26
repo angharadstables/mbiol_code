@@ -119,3 +119,13 @@ write.csv(cluster1proteins, file = "results/cluster1proteins.csv")
 length(cluster55[cluster55 == 10])
 # 1=1991, 2=1273, 3=1101, 4=999, 5=793, 6=300, 7=348, 8=238, 9=612, 10=259
 # Investigate where these clusters are 
+avg_dend_obj <- as.dendrogram(hclust)
+avg_col_dend_55 <- color_branches(avg_dend_obj, h = 55)
+plot(avg_col_dend_55)
+# cluster 3 seems to include the one which has the very low cluster proteins. 
+# csvs creating
+cluster2proteins <- names(cluster55[cluster55 == 2])
+write.csv(cluster2proteins, file = "results/cluster2proteins.csv")
+# csv 3
+cluster3proteins <- names(cluster55[cluster55 == 3])
+write.csv(cluster3proteins, file = "results/cluster3proteins.csv")
