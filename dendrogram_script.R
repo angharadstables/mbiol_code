@@ -97,3 +97,18 @@ plot(dend_coloured)
 png(filename = "cluster_NCOAs.png", width = 600, height = 600)
 plot(dend_coloured, cex = 0.1, main = "NCOA1/2/3")
 dev.off()
+# protein ids 
+# NCOA 4 Q13772
+# NCOA 5 Q9HCD5
+# NCOA 6 Q14686
+# Not in the same cluster as 1 and 2. find them. 
+# Cutting higher up to have 8-10 clusters
+cluster50 <- cutree(hclust, h = 50)
+range(cluster50)
+# 14 clusters
+cluster60 <- cutree(hclust, h = 60)
+range(cluster60)
+# 7 clusters
+cluster55 <- cutree(hclust, h = 55)
+range(cluster55)
+# 10 clusters
