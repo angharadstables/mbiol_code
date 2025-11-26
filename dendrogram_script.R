@@ -112,3 +112,6 @@ range(cluster60)
 cluster55 <- cutree(hclust, h = 55)
 range(cluster55)
 # 10 clusters
+# Pulling out the clusters 
+cluster1proteins <- names(cluster55[cluster55 == 1])
+write.csv(cluster1proteins, file = "results/cluster1proteins.csv")
