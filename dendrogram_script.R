@@ -115,3 +115,7 @@ range(cluster55)
 # Pulling out the clusters 
 cluster1proteins <- names(cluster55[cluster55 == 1])
 write.csv(cluster1proteins, file = "results/cluster1proteins.csv")
+# how many proteins in each cluster 
+length(cluster55[cluster55 == 10])
+# 1=1991, 2=1273, 3=1101, 4=999, 5=793, 6=300, 7=348, 8=238, 9=612, 10=259
+# Investigate where these clusters are 
